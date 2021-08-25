@@ -28,7 +28,13 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request)
     {
-        Product::create($request->validated());
+        $attributes = $request->validated();
+        if ($request->hasFile('image'))
+        {
+            $path = $request->image->store('image');
+            $attributes['image'] = $path;
+        }
+        Product::create($attributes);
         return response()->json('Created Product Sucessfully');
     }
 
@@ -52,7 +58,13 @@ class ProductController extends Controller
      */
     public function update(ProductRequest $request, Product $product)
     {
-        $product->update($request->validated());
+        $attributes = $request->validated();
+        if ($request->hasFile('image'))
+        {
+            $path = $request->image->store('image');
+            $attributes['image'] = $path;
+        }
+        $product->update($attributes);
         return response()->json('Updated Successfully');
     }
 
