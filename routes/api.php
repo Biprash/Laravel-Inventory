@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -28,3 +29,4 @@ Route::post('products/{product}/purchase', [ProductController::class, 'purchase'
 Route::post('products/{product}/sale', [ProductController::class, 'sale']);
 
 Route::apiResource('orders', \App\Http\Controllers\OrderController::class)->only(['index', 'store']);
+Route::apiResource('customers', CustomerController::class);
