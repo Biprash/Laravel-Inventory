@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Http\Request;
@@ -30,3 +31,4 @@ Route::post('products/{product}/sale', [ProductController::class, 'sale']);
 
 Route::apiResource('orders', \App\Http\Controllers\OrderController::class)->only(['index', 'store']);
 Route::apiResource('customers', CustomerController::class);
+Route::apiResource('categories', CategoryController::class);
