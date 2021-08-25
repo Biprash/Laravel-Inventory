@@ -26,3 +26,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::apiResource('products', ProductController::class);
 Route::post('products/{product}/purchase', [ProductController::class, 'purchase']);
 Route::post('products/{product}/sale', [ProductController::class, 'sale']);
+
+Route::apiResource('orders', \App\Http\Controllers\OrderController::class)->only(['index', 'store']);
