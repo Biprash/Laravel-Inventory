@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\CustomerController;
-use App\Http\Controllers\ProductController;
+use App\Http\Controllers\Api\CategoryController;
+use App\Http\Controllers\Api\CustomerController;
+use App\Http\Controllers\Api\OrderController;
+use App\Http\Controllers\Api\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -29,6 +30,6 @@ Route::apiResource('products', ProductController::class);
 Route::post('products/{product}/purchase', [ProductController::class, 'purchase']);
 Route::post('products/{product}/sale', [ProductController::class, 'sale']);
 
-Route::apiResource('orders', \App\Http\Controllers\OrderController::class)->only(['index', 'store']);
+Route::apiResource('orders', OrderController::class)->only(['index', 'store']);
 Route::apiResource('customers', CustomerController::class);
 Route::apiResource('categories', CategoryController::class);

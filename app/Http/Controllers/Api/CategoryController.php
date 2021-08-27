@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -35,7 +36,7 @@ class CategoryController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Category  $category
-     * @return Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function show(Category $category)
     {
@@ -47,7 +48,7 @@ class CategoryController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Category  $category
-     * @return Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update(CategoryRequest $request, Category $category)
     {
@@ -59,7 +60,7 @@ class CategoryController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Category  $category
-     * @return Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function destroy(Category $category)
     {
